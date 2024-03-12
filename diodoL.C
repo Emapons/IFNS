@@ -1,5 +1,8 @@
 #include <iostream>           // ci serve per stampare a video il testo
-#include <TGraphErrors.h>     // ci serve per istanziare grafici
+
+#include <TGraphErrors.h>
+
+// ci serve per istanziare grafici
 #include <TAxis.h>            // ci serve per manipolare gli assi dei grafici
 #include <TCanvas.h>          // ci serve per disegnare i grafici
 #include <TF1.h>              // ci serve per scrivere le funzioni con cui fittare i grafici
@@ -9,7 +12,6 @@
 using namespace std; 
 
 void diodoL(){
-
   // numero misure prese
   const int nmisure = 16; 
   
@@ -47,7 +49,6 @@ void diodoL(){
   gIV->GetXaxis()->SetTitle("I_d [mA]");
   gIV->GetYaxis()->SetTitle("V_{d} [V]");
   gIV->Draw("AP");
-  
   
   auto legend = new TLegend(0.1,0.7,0.48,0.9);
    legend->SetHeader("Legenda Fit:","C");
