@@ -11,6 +11,11 @@
  */
 
 #include <TGraph.h>
+#include <TGraphErrors.h>
+#include <TF1.h>
+#include <TFitResult.h>
+#include <iostream>
+using namespace std;
 
 double sqr(double x) {return x*x;}
 

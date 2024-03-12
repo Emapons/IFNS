@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <math.h>   
+#include <string>
 
 #include "TH1F.h"
 #include "TF1.h"
@@ -10,6 +11,11 @@
 #include "TGraphErrors.h"
 #include "TCanvas.h"
 #include "TFile.h"
+
+using std::string;
+using std::ifstream;
+using std::cout;
+using std::endl;
 
 Double_t fpoisson(Double_t *x,Double_t *par) {
   return par[0]*TMath::Poisson(x[0],par[1]);
@@ -22,7 +28,7 @@ void EsempioLetturaFileADueColonne(string input = "test.txt") {
   // 1    4
   // 2    5
   // 3    6
-  static const int nBins = 20;
+  static const int nBins = 4;
   float x[nBins];  int y[nBins]; 
   ifstream parInput(input.c_str());
   int i = 0;
@@ -43,8 +49,9 @@ void EsempioLetturaFileADueColonne(string input = "test.txt") {
   }
 
   // come si accorpano gli eventi in bin adiacenti
-  myHisto->Rebin(4);
+  //myHisto->Rebin(4);
   // ora myHisto ha nBins/4 classi e ognuna contiene gli eventi di 4 adiacenti
+  myHisto->Draw();
 }
 
 void EsempioFitMultipliSuStessoGrafico() {
