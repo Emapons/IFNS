@@ -1,0 +1,2 @@
+-std=c++20
+-I/home/davide/Code/root_build/include
