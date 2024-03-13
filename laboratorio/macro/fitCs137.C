@@ -10,9 +10,13 @@
 #include "TGraphErrors.h"
 #include "TCanvas.h"
 #include "TFile.h"
+#include <string>
+using std::string;
+using std::ifstream;
+using std::cout;
+using std::endl;
 
-void fitCs137(string input = "cs137-gruppob11.txt") 
-{
+void fitCs137(string input = "cs137-gruppob11.txt") {
  
   ifstream parInput(input.c_str());
 
@@ -20,7 +24,9 @@ void fitCs137(string input = "cs137-gruppob11.txt")
   float xMin = 525.; float xMax = 30525.;  float binWidth = 50.;
 
   TCanvas c1("c1","c1",20,20,800,600);
-  float x;  float y; string parName; 
+  float x;  
+  float y; 
+  string parName; 
   TH1F* theHisto = new TH1F("theHisto", "Electron energy", (int)((xMax-xMin)/binWidth), xMin, xMax);
   //theHisto->Sumw2();
   

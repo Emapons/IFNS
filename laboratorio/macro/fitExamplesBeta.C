@@ -22,7 +22,6 @@ Double_t fpoisson(Double_t *x,Double_t *par) {
 }
 
 void EsempioLetturaFileADueColonne(string input = "test.txt") {
-  
   // file di test contiene:
   //    > more test.txt
   // 1    4

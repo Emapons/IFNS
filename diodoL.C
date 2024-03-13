@@ -8,7 +8,6 @@
 #include <TF1.h>              // ci serve per scrivere le funzioni con cui fittare i grafici
 #include <iomanip>            // ci serve per manipolare l'output a video 
 #include <TMath.h>
-
 using namespace std; 
 
 void diodoL(){
@@ -20,7 +19,6 @@ void diodoL(){
   
   float I_d[]  =
 {0.00012,0.00074,0.1198,0.3394,0.5716,0.8073,1.980,2.433,2.897,3.353,3.817,4.272,4.737,5.659,6.591,7.516};
-
   // ---------------------- Quantità derivate ----------------------- //
 
   float sV_d[nmisure], sI_d[nmisure];
