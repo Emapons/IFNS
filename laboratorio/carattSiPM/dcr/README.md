@@ -5,5 +5,7 @@
 - Avviare il programma
 
 ### Da completare ancora:
+- [ ] rimuovere la funzione in più (rimasta dalla macro vecchia)
+- [ ] implementare la possibilità di fittare Poissoniane
 - [ ] aggiungere il fit conclusivo con tutte le medie e varianze
 - [ ] ...
