@@ -19,3 +19,7 @@ Divisione della scrittura della relazione:
 |   --- |   --- |   --- |   --- |
 |       |       |       |       |
 
+
+---
+>**_NOTA:_** I file "compile_flags.txt" mi servono per compilare le macro con root (per richiamare le librerie di root). Quando avrò voglia li aggiungerò nel .gitignore (così voi non li scaricherete)
+---
