@@ -1,2 +1,0 @@
--std=c++17
--I/home/davide/Code/root_build/include
