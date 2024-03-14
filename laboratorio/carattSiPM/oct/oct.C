@@ -1,11 +1,11 @@
 /*  Autore: Davide Rinarelli
- *  Esperienza: Dark Count Rate
+ *  Esperienza: Optical Cross Talk
  *  Descrizione:
  *  Note:
  *  > Files named: 
- *      dcr0.txt
- *      dcr1.txt
- *      dcr2.txt
+ *      oct0.txt
+ *      oct1.txt
+ *      oct2.txt
  *      ...
  *  > With the following structure:
  *  (float) (int)
@@ -49,7 +49,7 @@ Double_t fpoisson(Double_t *x,Double_t *par) {
   return par[0]*TMath::Poisson(x[0],par[1]);
 }
 
-void dcr() {
+void oct() {
   //Number of file
   int count=2; //set with (number of file - 1)
 
@@ -70,7 +70,7 @@ void dcr() {
     //opening file
     //if the file is not found may accur "segmentation violation"
     ostringstream filename;
-    filename<<"dcr"<<i<<".txt";
+    filename<<"oct"<<i<<".txt";
     myFile->open(filename.str().c_str()); //.c_str() for old library string
     
     //count number of bin for each set
@@ -127,7 +127,7 @@ void dcr() {
     delete f1;
   
   }//end for cycle
-  
+ 
   /*
    * Part 2
   */
@@ -139,7 +139,8 @@ void dcr() {
 
 
   /*
-   * Part 2 Fit
+   * Part 2 
+   * Fit
    * Nel caso in cui potesse essere utile per un'altra analisi dati (in questo caso naturalmente non ha senso)
   */
   /* 

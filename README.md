@@ -14,8 +14,8 @@ I vantaggi di queste pagine rispetto a WhatsApp è che le discussioni rimangono 
 Inserite nella tabella i file o argomenti su cui state lavorando:
 |           |Mattia |Paolo  |Ema    |Davide |
 |   ---     |   --- |   --- |   --- |   --- |
-|carattSiPM |       |       |       |[dcr](/laboratorio/carattSiPM/dcr) |
-|scintSiPM  |       |       |       |       |
+|[carattSiPM](/laboratorio/carattSiPM) |       |       |       |[dcr](/laboratorio/carattSiPM/dcr) - [oct](/laboratorio/carattSiPM/oct)|
+|[scintSiPM](/laboratorio/scintSiPM)  |       |       |       |?? raggi cosmici ([RC](/laboratorio/scintSiPM/RC)) ??|
 
 ## Divisione relazione:
 Divisione della scrittura della relazione:
@@ -31,5 +31,5 @@ Divisione della scrittura della relazione:
 
 
 ---
->**_NOTA:_** I file "compile_flags.txt" mi servono per compilare le macro con root (per richiamare le librerie di root). Quando avrò voglia li aggiungerò nel .gitignore (così voi non li scaricherete)
+>**_NOTA:_** 
 ---
