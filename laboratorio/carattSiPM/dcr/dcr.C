@@ -22,6 +22,7 @@
 #include <string>
 #include <sstream>
 #include <algorithm> // for std::count() function
+#include <vector>
 
 //some library are not userfull
 #include "TH1F.h"
@@ -81,6 +82,7 @@ void dcr() {
     myFile->seekg(0, std::ios::beg );
     
     //creation data array (pointer) (in heap memory)
+    //std::vector<float> x; //usare vector??
     float *x = new float[nBins];
     int *y = new int[nBins];
     
