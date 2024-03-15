@@ -53,6 +53,8 @@ Double_t fpoisson(Double_t *x,Double_t *par) {
 void dcr() {
   //Number of file
   int count=2; //set with (number of file - 1)
+  //tempo di misura "gate"
+  float tau=0.5;
 
   unsigned int nBins = 0; //nBins for each set
   unsigned int n=0; //for reading file
@@ -129,16 +131,24 @@ void dcr() {
     delete f1;
   
   }//end for cycle
-  
+
   /*
    * Part 2
   */
   //now we have all the mean and the std deviation in mu[], smu[], sg[], ssg[]
   cout<<endl<<"****************************************"<<endl<<"Final Result:"<<endl;
-  //........
-  //........
-  //........
-
+  //rate calc
+  float r[count];
+  float sr[count];
+  //Per "count" misure
+  float ssr[count];
+  
+  for (int i =0; i<count; i++) {
+    r[i] = mu[i] / tau;
+    sr[i] = std::sqrt(mu[i]);
+    ssr[i] = sr[i] / std::sqrt(count);
+  }
+  
 
   /*
    * Part 2 Fit
