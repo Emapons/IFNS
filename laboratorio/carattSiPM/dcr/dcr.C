@@ -31,9 +31,11 @@
 #include "TRandom3.h"
 #include "TMath.h"
 #include "TGraphErrors.h"
+#include "TGraphPainter.h"
 #include "TCanvas.h"
 #include "TFile.h"
 #include "TLegend.h"
+#include "TStyle.h"
 
 using std::string;
 using std::ifstream;
@@ -115,7 +117,7 @@ void dcr() {
     //for more see: "https://root.cern.ch/root/htmldoc/guides/users-guide/FittingHistograms.html#example-of-fit-combining-functions"  -  section 7.4
     TF1* f1 = new TF1("f1", "gaus", x[0], x[nBins-1]);  //for Posison function sobstitute "gauss" with fpoisson
                                                         //change extremes in case of rebinning
-    myHisto->Fit(f1, "NR+");    //"N" is fornot drawing the fit
+    myHisto->Fit(f1, "NR+");    //"N" is for not drawing the fit
     //Get parameter
     mu[i]=f1->GetParameter(1);
     smu[i]=f1->GetParError(1);
@@ -142,35 +144,68 @@ void dcr() {
   float sr[count];
   //Per "count" misure
   float ssr[count];
-  
+
   for (int i =0; i<count; i++) {
-    r[i] = mu[i] / tau;
-    sr[i] = std::sqrt(mu[i]);
-    ssr[i] = sr[i] / std::sqrt(count);
+    r[i] = mu[i] / tau;                 //calcolo rate come scritto su schede
+    sr[i] = std::sqrt(mu[i]) / tau;     //calcolo incertezza rate scritto su schede
+    ssr[i] = sr[i] / std::sqrt(count);  //calcolo incertezza definito sulla slide 31 (non chiaro il significato)
+    cout<<"Set "<<i<<"\tr = ("<<r[i]<<"+-"<<sr[i]<<")\t"<<"??? incertezza su ssr=sqrt(sr)/count (per tante misure): ssr = "<<ssr[i]<<endl; 
+  }
+  cout<<"<r> = ("<<"??"<<"+-"<<"??"<<")\t???"<<endl;
+  
+  /*
+   * Part 3
+   * Fitting mean in function of the temperature
+  */
+  cout<<endl<<"****************************************"<<endl<<"Final Result:"<<endl;
+  //import file temperature
+  ifstream *myFile = new ifstream;
+  myFile->open("dcrTmp.txt");//, std::ifstream::in);
+  
+  //reading file
+  float x[count];
+  n=0;
+  if (myFile->is_open()) {
+    while ( myFile->good() ) {
+      *myFile >> x[n];   
+      //cout<<"\t"<<" "<<x[n]<<" "<<y[n]<<endl; //decomment this line if you want to see the data
+      n++;  
+      if (n == count) break;
+    }
+    myFile->close();
   }
   
+  //create error array
+  float sx[count];
+  for (int i=0; i<count; i++) {
+    sx[i] = 1;                    //modify error
+  }
 
-  /*
-   * Part 2 Fit
-   * Nel caso in cui potesse essere utile per un'altra analisi dati (in questo caso naturalmente non ha senso)
-  */
-  /* 
-  //Create Canvas 
-  TCanvas *myCanvas = new TCanvas("myCanvas","Fit ...", 1080,720);
-  //myCanvas -> SetGrid();
-  
-  //Create TGraphErrors
-  TGraphErrors *g1=new TGraphErrors(count, mu, sg, smu, ssg);
-  g1->SetLineColor(kBlue);
+  //Canvas creation 
+  TCanvas *c1 = new TCanvas("c1","Canvas",200,10,700,500);
+  gStyle -> SetOptFit(1111);  //(#include "TStyle.h")
+  //c1->SetFillColor(42);
+  c1 -> SetGrid();
 
-  //create user defined function for fitting
-  TF1 *f1 = new TF1("f1", "gaus", 0, 3);  //extremes?
-  g1 -> Fit(f1);
-  g1 -> Draw("ALP"); 
+  //Plotting points
+  TGraphErrors *gr = new TGraphErrors(count, x, r, sx, sr); // | numero di punti | x | y | sx | sy |
+  gr -> SetTitle("r(T)");
+  gr -> SetMarkerColor(4);
+  gr -> SetMarkerStyle(21);
+  gr -> GetXaxis() -> SetTitle("T [°C]");
+  gr -> GetYaxis() -> SetTitle("r [conteggi/ms]");
   
+  //userdefined function for fitting
+  TF1 *f1 = new TF1("f1", "[0]+x*[1]", x[0], x[count-1]); //modify the fitting function
+  gr -> Fit(f1);
+  gr -> Draw("ALP");
+  
+  //Legend drawing
   TLegend *leg = new TLegend(0.11,0.75,0.5,0.89);
-  leg -> AddEntry(f1, "Fit function:", "L");
-  leg -> SetBorderSize(1);
+  leg -> SetTextSize(0.03);
+  leg -> SetHeader("Legend:");
+  leg -> AddEntry(f1, "Fit function: [0] + x*[1]");
+  //leg -> SetBorderSize(1);
   leg -> Draw();
-  */
+
 }
