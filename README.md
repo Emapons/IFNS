@@ -1,5 +1,4 @@
 # IFNS
-aaaaaaaa
 ---
 >**_NOTA:_** Guardate bene la cartella [dcr](/laboratorio/carattSiPM/dcr). Se vi va bene la struttura copiatela per le altre analisi dati.
 ---
@@ -16,7 +15,7 @@ Inserite nella tabella i file o argomenti su cui state lavorando:
 |           |Mattia |Paolo  |Ema    |Davide |
 |   ---     |   --- |   --- |   --- |   --- |
 |[carattSiPM](/laboratorio/carattSiPM) |       |       |       |[dcr](/laboratorio/carattSiPM/dcr) - [oct](/laboratorio/carattSiPM/oct)|
-|[scintSiPM](/laboratorio/scintSiPM)  |       |       |       |?? raggi cosmici ([RC](/laboratorio/scintSiPM/RC)) ??|
+|[scintSiPM](/laboratorio/scintSiPM)  |       |       |       |([RC](/laboratorio/scintSiPM/RC))|
 
 ## Divisione relazione:
 Divisione della scrittura della relazione:
