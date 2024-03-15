@@ -44,11 +44,6 @@ using std::ostringstream;
 //gdb --args root.exe -l -b -q yourRootMacro.C
 //and then "run"
 
-//Definition of the Posisson function
-Double_t fpoisson(Double_t *x,Double_t *par) {
-  return par[0]*TMath::Poisson(x[0],par[1]);
-}
-
 void spettroRC(){
   //tempo di misura "gate"
   float tau=0.5;
