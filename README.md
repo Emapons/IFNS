@@ -1,4 +1,5 @@
 # IFNS
+aaaaaaaa
 ---
 >**_NOTA:_** Guardate bene la cartella [dcr](/laboratorio/carattSiPM/dcr). Se vi va bene la struttura copiatela per le altre analisi dati.
 ---
