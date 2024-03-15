@@ -47,11 +47,6 @@ using std::ostringstream;
 //gdb --args root.exe -l -b -q yourRootMacro.C
 //and then "run"
 
-//Definition of the Posisson function
-Double_t fpoisson(Double_t *x,Double_t *par) {
-  return par[0]*TMath::Poisson(x[0],par[1]);
-}
-
 void dcr() {
   //Number of file
   int count=2; //set with (number of file - 1)
@@ -115,7 +110,7 @@ void dcr() {
     
     //Regression with userdefined function 
     //for more see: "https://root.cern.ch/root/htmldoc/guides/users-guide/FittingHistograms.html#example-of-fit-combining-functions"  -  section 7.4
-    TF1* f1 = new TF1("f1", "gaus", x[0], x[nBins-1]);  //for Posison function sobstitute "gauss" with fpoisson
+    TF1* f1 = new TF1("f1", "gaus", x[0], x[nBins-1]);  //for Posison function see GitHub
                                                         //change extremes in case of rebinning
     myHisto->Fit(f1, "NR+");    //"N" is for not drawing the fit
     //Get parameter
