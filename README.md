@@ -15,7 +15,7 @@ Inserite nella tabella i file o argomenti su cui state lavorando:
 |           |Mattia |Paolo  |Ema    |Davide |
 |   ---     |   --- |   --- |   --- |   --- |
 |[carattSiPM](/laboratorio/carattSiPM) |       |       |       |[dcr](/laboratorio/carattSiPM/dcr) - [oct](/laboratorio/carattSiPM/oct)|
-|[scintSiPM](/laboratorio/scintSiPM)  |       |       |       |([RC](/laboratorio/scintSiPM/RC))|
+|[scintSiPM](/laboratorio/scintSiPM)  |       |       |       |[rc](/laboratorio/scintSiPM/rc)|
 
 ## Divisione relazione:
 Divisione della scrittura della relazione:
